@@ -20,7 +20,7 @@
     drawChart();
   });
 
-  const drawChart = (userCountry = "") => {
+  const drawChart = userCountry => {
     const searchCountry = userCountry ? userCountry : countryName;
     const country = data[searchCountry];
     const dates = country.map(day => day.date);
@@ -104,7 +104,7 @@
 <h2>Search by country</h2>
 <div class="search-container">
   <input bind:value={countryName} />
-  <button on:click={drawChart}>Search</button>
+  <button on:click={() => drawChart()}>Search</button>
   <button on:click={reset}>Reset</button>
 </div>
 <div class="buttons">
